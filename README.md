@@ -1,2 +1,9 @@
 # mRobot-Ardunio
-Introduction to Computer Engineering Class Term Project, Spring 2018-2019.
+
+In the beginning, the ultrasonic sensor and motors were identified. The code was started with Serial.begin(9600). Serial communication is the transmission of digital information, i.e. 1 and 0, from one line to the next. After compiling the program, the written code on the program was transferred to Arduino's memory via serial communication.
+In the second part of the code, distance between the robot and the obstacle was measured by ultrasonic sensor and the distance was printed on the portal. Then, the robot waited for 0.1 seconds.
+The motors work opposite to each other. In other words, when a motor runs clockwise side, the other motor runs the counterclockwise side. The first motor which represents left wheel was set to -255, and the second motor which represents right wheel was set to 255 to run the robot forward.
+In the third part of the code, the speed of the motors was arranged depends on the distance interval between the obstacle and the robot. The motor.run() parameter was used in order to move each motor with an specific speed. First, the motors were started at their initial speed
+when the distance was greater than 150 by using motor.run(leftWheel) for the left (first) motor and motor.run(rightWheel) for the right (second) motor. Second, the initial speeds of the motors were decreased by 30 every 30 centimeters to avoid sudden stop.
+However, in the last two steps the distance interval was 20 cm (from 10 to 30) and 10 cm (from 0 to 10) in order. Because the distance interval was so close for huge speed changes, so the distance was divided to shorter range. In short, the robot was thought to have a driver in it, and the speed decreased as the distance decreased.
+In the last part of the code, the motors were stopped when the distance were smaller and equal to 10 cm. They were stopped by using motor.stop() parameter. The exit(0) parameter was used in order to stop the code. So that, the ultrasonic sensor do not detect the distance again.
